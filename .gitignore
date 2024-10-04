@@ -1,7 +1,8 @@
 .idea
 out
+lesson
 *.iml
 log
-
+*.md
 
 
