@@ -48,11 +48,12 @@ public class ArrayStorage {
         for (int i = 0; i < size; i++) {
             if (uuid.equals(storage[i].uuid)) {
                 storage[i] = storage[size - 1];
-                storage[size - 1] = null;
                 size--;
+                storage[size] = null;
                 return;
             } else {
                 System.out.println("Resume with " + uuid + " not found.");
+                return;
             }
         }
     }
@@ -61,11 +62,11 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        Resume[] result = new Resume[size];
+        Resume[] allResumes = new Resume[size];
         for (int i = 0; i < size; i++) {
-            result[i] = storage[i];
+            allResumes[i] = storage[i];
         }
-        return result;
+        return allResumes;
     }
 
     int size() {
