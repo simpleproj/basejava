@@ -15,14 +15,14 @@ public class ArrayStorage {
     }
 
     void save(Resume r) {
-        boolean flag = false;
+        int index = -1;
         for (int i = 0; i < size; i++) {
             if (r.uuid.equals(storage[i].uuid)) {
-                flag = true;
+                index = i;
             }
         }
 
-        if (flag) {
+        if (index != -1) {
             System.out.println("Resume with " + r.uuid + " exist.");
         } else if (size == storage.length) {
             System.out.println("Storage already overflow");
@@ -33,11 +33,9 @@ public class ArrayStorage {
     }
 
     Resume get(String uuid) {
-        for (Resume resume : storage) {
-            if (resume != null) {
-                if (resume.uuid.equals(uuid)) {
-                    return resume;
-                }
+        for (int i = 0; i < size; i++) {
+            if (uuid.equals(storage[i].uuid)) {
+                return storage[i];
             }
         }
         System.out.println("Resume with " + uuid + " not found.");
@@ -47,15 +45,13 @@ public class ArrayStorage {
     void delete(String uuid) {
         for (int i = 0; i < size; i++) {
             if (uuid.equals(storage[i].uuid)) {
-                storage[i] = storage[size - 1];
                 size--;
+                storage[i] = storage[size];
                 storage[size] = null;
-                return;
-            } else {
-                System.out.println("Resume with " + uuid + " not found.");
                 return;
             }
         }
+        System.out.println("Resume with " + uuid + " not found.");
     }
 
     /**
