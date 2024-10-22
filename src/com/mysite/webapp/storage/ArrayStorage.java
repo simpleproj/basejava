@@ -8,30 +8,23 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    private Resume[] storage = new Resume[10000];
+    private static final int STORAGE_LIMIT = 10000;
+    private Resume[] storage = new Resume[STORAGE_LIMIT];
     private int size = 0;
 
     public void clear() {
         Arrays.fill(storage, 0, size, null);
         size = 0;
-
-/** old implementation
- *       for (int i = 0; i < size; i++) {
- *           storage[i] = null;
- *       }
- *       size = 0;
- *   }
- */
     }
 
     public void save(Resume r) {
-        if (getIndex(r.getUuid()) == -1) {
+        if (size == STORAGE_LIMIT) {
+            System.out.println("Storage already overflow");
+        } else if (getIndex(r.getUuid()) != -1) {
+            System.out.println("Resume with " + r.getUuid() + " exist.");
+        } else {
             storage[size] = r;
             size++;
-        } else if (size == storage.length) {
-            System.out.println("Storage already overflow");
-        } else {
-            System.out.println("Resume with " + r.getUuid() + " exist.");
         }
     }
 
@@ -69,14 +62,6 @@ public class ArrayStorage {
      */
     public Resume[] getAll() {
         return Arrays.copyOfRange(storage, 0, size);
-
-/** old implementation
- *       Resume[] allResumes = new Resume[size];
- *       for (int i = 0; i < size; i++) {
- *           allResumes[i] = storage[i];
- *       }
- *       return allResumes;
- */
     }
 
     public int size() {
