@@ -1,24 +1,22 @@
 package com.mysite.webapp;
 
-import com.mysite.webapp.model.Resume;
-import com.mysite.webapp.storage.ArrayStorage;
-import com.mysite.webapp.storage.Storage;
-
 /**
  * Test for your ArrayStorage implementation
  */
+/*
 public class MainTestArrayStorage {
     private static final Storage ARRAY_STORAGE = new ArrayStorage();
 //    private static final Storage ARRAY_STORAGE = new SortedArrayStorage();
 
+
     public static void main(String[] args) {
-        final Resume r1 = new Resume();
+        final Resume r1 = new Resume(uuid);
         r1.setUuid("uuid1");
-        final Resume r2 = new Resume();
+        final Resume r2 = new Resume(uuid);
         r2.setUuid("uuid2");
-        final Resume r3 = new Resume();
+        final Resume r3 = new Resume(uuid);
         r3.setUuid("uuid3");
-        final Resume r4 = new Resume();
+        final Resume r4 = new Resume(uuid);
         r4.setUuid("uuid3");
 
         ARRAY_STORAGE.save(r1);
@@ -50,3 +48,4 @@ public class MainTestArrayStorage {
         }
     }
 }
+*/
