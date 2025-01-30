@@ -1,7 +1,6 @@
 package com.mysite.webapp.storage;
 
-public class ArrayStorageTest extends AbstractStorageTest {
-
+public class ArrayStorageTest extends AbstractArrayStorageTest {
     public ArrayStorageTest() {
         super(new ArrayStorage());
     }
